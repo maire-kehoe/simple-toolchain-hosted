@@ -33,7 +33,7 @@ template:
           '[' + $env.branch + ']('+ $env.repository + '/tree/' + $env.branch + ')' :
           '[master]('+ $env.repository + '/tree/master)'
 toolchain:
-  name: 'simple-toolchain-test03-{{timestamp}}'
+  name: 'simple-toolchain-test04-{{timestamp}}'
   template:
     getting_started:
       $ref: "#/messages/template.gettingStarted"
