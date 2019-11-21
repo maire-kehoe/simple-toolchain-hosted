@@ -32,19 +32,19 @@ template:
         $env.branch ?
           '[' + $env.branch + ']('+ $env.repository + '/tree/' + $env.branch + ')' :
           '[master]('+ $env.repository + '/tree/master)'
-toolchain:
-  name: >
-    $env.toolchainName ? '{{toolchainName}}' :
-      'simple-toolchain-{{timestamp}}'
-  template:
-    getting_started:
-      $ref: "#/messages/template.gettingStarted"
+# toolchain:
+#   name: >
+#     $env.toolchainName ? '{{toolchainName}}' :
+#       'simple-toolchain-{{timestamp}}'
+#   template:
+#     getting_started:
+#       $ref: "#/messages/template.gettingStarted"
 services:
   sample-repo:
     service_id: >
       $env.source_provider ? $env.source_provider : 'hostedgit'
     parameters:
-      repo_name: '{{toolchain.name}}'
+      repo_name: 'simple-toolchain-{{timestamp}}'
       repo_url: >
         $env.type === 'link' ? $env.app_repo :
           $env.sourceZipUrl ? '{{sourceZipUrl}}' :
